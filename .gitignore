@@ -1,0 +1,13 @@
+# Se ignoraran todas las carpetas
+#
+Prac1_Parc2/*.cbp
+Prac1_Parc2/*bin/
+Prac1_Parc2/*obj/
+
+#Se ignoran los archivos .cbp, .depen
+Prac1_Parc2/*.cbp
+Prac1_Parc2/*.depend
+#se ignoran todos los archivos .swp
+Prac1_Parc2/*.swp
+
+
