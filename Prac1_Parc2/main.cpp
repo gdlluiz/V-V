@@ -30,10 +30,10 @@ int main()
                     cin>>rfc;
                     len = strlen(rfc);
                     if (len<10){
-                        cout<<"ingresa por lo menos 10 caracteres"<<endl;
+                        cout<<"FAIL ingresa por lo menos 10 caracteres"<<endl<<endl;
                     }
                     if(len > 10){
-                        cout<<"escribe 10 caracteres como maximo. "<<endl;
+                        cout<<"FAIL escribe 10 caracteres como maximo. "<<endl<<endl;
                     }
                     if(len == 10){
                             cout<<endl;
@@ -121,7 +121,6 @@ int verificaNumeros(char cadena[10]){
     }
     return n;
 }
-
 int verificaLetras(char cadena[10]){
     int i, cod, n=0, aux=0;
     // verifico que los primeros 4 caracteres segun ascii
