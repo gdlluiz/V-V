@@ -1,18 +1,23 @@
 #include <iostream>
 #include<cstring>
+#include<cstdlib>
+#include<string>
 
 using namespace std;
 void menu();
 int verificaNumeros(char cadena[10]);
 int verificaLetras(char cadena[10]);
-
-
+void sumatoria(int matriz[3][3]);
+bool isInt(string n);
 int main()
 {
-    int n=0, l=0, op;
+    int n=0, l=0, op, i, j,len=0,num=0;
     char rfc[10];
-    //int matriz[3][3];
-    int len=0;
+    string s;
+
+    int matriz[3][3];
+
+
     do{
         menu();
         cin>>op;
@@ -55,7 +60,26 @@ int main()
                 }while(len !=10);
             break;
             case 2:
-                    cout<<"opcion 2"<<endl;
+                for(i=0; i<3; i++){
+                    for(j=0;j<3;j++){
+                        do{
+                            cout<<"Valores permitidos 1-50"<<endl;
+                            cout<<"Valor ["<<i<<"]["<<j<<"]: ";
+                            cin>>s;
+                            if (isInt(s)){
+                                num = atoi(s.c_str());
+                            }
+                            else{
+                                num=100;
+                            }
+
+
+                        }while((num>=1 && num >51));
+                        matriz[i][j] = num;
+                    }
+                }
+
+                sumatoria(matriz);
                 break;
             case 3:{
 
@@ -85,7 +109,7 @@ int verificaNumeros(char cadena[10]){
 // verifico que los ultimos 6 caracteres sean numeros segun ascii
     for (i=4; i<10; i++){
         cod = cadena[i];
-        if(cod >47 && cod<=57){
+        if(cod >=48 && cod<=57){
             n++;
         }
     }
@@ -103,7 +127,7 @@ int verificaLetras(char cadena[10]){
         }
     // verifico que los primer 4 caracteres
     // no empiecen con numeros segun ascii
-        if(cod >47 && cod<=57){
+        if(cod >=48 && cod<=57){
             aux++;
         }
     }
@@ -111,4 +135,29 @@ int verificaLetras(char cadena[10]){
         n = 9;
     }
     return n;
+}
+bool isInt(string n){
+
+
+    int c;
+
+    for(int i =0; i<n.length(); i++){
+        c=n[i];
+        if(!(c>=48 && c<=57)){
+            return false;
+        }
+    }
+    return true;
+}
+
+void sumatoria(int matriz[3][3]){
+    int i,j, res;
+    for(i=0;i<3; i++){
+        res=0;
+        for(j=0;j<3;j++){
+            res+=matriz[i][j];
+            cout<<matriz[i][j]<<"\t";
+        }
+        cout<<"Sumatoria: "<<res<<endl;
+    }
 }
