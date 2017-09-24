@@ -41,7 +41,7 @@ int main()
                         n=verificaNumeros(rfc);
                         l=verificaLetras(rfc);
                         if(l==4 && n==6){
-                            cout<<"TEST PASS!!"<<endl;
+                            cout<<"PASS!!"<<endl;
                         }
                         else if(l== 9){
                             cout<<"FAIL Formato incorrecto"<<endl;
@@ -68,6 +68,12 @@ int main()
                             cin>>s;
                             if (isInt(s)){
                                 num = atoi(s.c_str());
+                                if(num >0 && num<=50){
+                                     matriz[i][j] = num;
+                                }
+                                else{
+                                    num=100;
+                                }
                             }
                             else{
                                 num=100;
@@ -75,7 +81,7 @@ int main()
 
 
                         }while((num>=1 && num >51));
-                        matriz[i][j] = num;
+
                     }
                 }
 
